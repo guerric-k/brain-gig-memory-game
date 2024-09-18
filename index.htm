@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--Additional meta tags for browsers and search engines-->
+    <meta name="Game" content="Game, Mind Game, Flip Game">
+    <meta name="keywords" content="Memory card games, games, flip">
+    <title>Brain Gig Memory Game</title>
+</head>
+
+<body>
+    <div id="rulesBox" class="modal">
+        <div class="modal-content">
+            <h1><i class="fa-solid fa-brain"></i>Brain Gig </h1>
+            <p>Match all pairs of images before the timer runs out. You have 30 seconds for Level 1 and 20 seconds for
+                Level 2. Good luck!</p>
+            <button id="startBtn">Start</button>
+            <button id="exitBtn">Exit</button>
+        </div>
+    </div>
+
+    <div id="game">
+        <h2 id="levelTitle">Level 1</h2>
+        <div id="timer">Time left: <span id="timeLeft"></span></div>
+        <div id="score">Score: <span id="scoreValue">0</span></div>
+        <div class="grid" id="imageGrid"></div>
+        <div id="footer">
+            <div id="datetime"></div>
+            <div id="sessionTime">Session time: <span id="sessionDuration"></span></div>
+        </div>
+    </div>
+
+    <!--Link to js file-->
+    <script src="assets/js/script.js"></script>
+    <!--Font Awsome Kit, kept at the bottom to increase search and load speed -->
+    <script src="https://kit.fontawesome.com/7eeb9f7658.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

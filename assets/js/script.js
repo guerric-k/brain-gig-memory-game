@@ -23,9 +23,16 @@ document.addEventListener("DOMContentLoaded", function() {
     const sessionDuration = document.getElementById('sessionDuration');
     const datetime = document.getElementById('datetime');
 
+    // Display Game Rules on DOM load
+    rulesBox.style.display = 'block'; 
+
     // Start button click event
     startBtn.addEventListener('click', startGame);
 
+    // Exit button click event to end the game
+    exitBtn.addEventListener('click', function() {
+        window.close(); // Ends the game
+    })    
 });
 
 

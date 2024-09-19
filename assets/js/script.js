@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let timerInterval;
     let gameDuration = 30; // Level 1 has a duration of 30 seconds
 
-    // Declare imageNames at the top, globally, so it's accessible to all functions
+    // Declaring imageNames at the top, globally, so it's accessible to all functions
     const imageNames = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg'];
     const defaultImage = 'image5.jpg'; // Image to be shown before flipping
     let flippedImages = [];
@@ -36,6 +36,8 @@ document.addEventListener("DOMContentLoaded", function() {
         window.close(); // Ends the game
     });
 
+
+
 /**
     *  Triggers rulesBox, Load grid, start timer and updateFooter
     */
@@ -62,12 +64,16 @@ function loadGrid() {
     
 }
 
-});   
-
-
+// Flip image on click
 function flipImage() {
+    let clickedImage = this;
+    clickedImage.src = `assets/images/${clickedImage.dataset.image}`; // Flip to actual image
+    flippedImages.push(clickedImage);
 
 }
+
+});   
+
 
 function checkForMatch() {
 

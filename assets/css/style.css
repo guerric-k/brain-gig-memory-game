@@ -39,7 +39,7 @@ button {
 .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    gap: 10px;
+    gap: 5px;
 }
 
 .grid img {

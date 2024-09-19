@@ -2,11 +2,13 @@
 // Get elements and add event listeners to them
 
 document.addEventListener("DOMContentLoaded", function() {
-	// Declaring Variables
+    // Declaring Variables
     let currentLevel = 1;
     let score = 0;
     let timerInterval;
     let gameDuration = 30; // Level 1 has a duration of 30 seconds
+
+    // Declare imageNames at the top, globally, so it's accessible to all functions
     const imageNames = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg'];
     const defaultImage = 'image5.jpg'; // Image to be shown before flipping
     let flippedImages = [];
@@ -24,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const datetime = document.getElementById('datetime');
 
     // Display Game Rules on DOM load
-    rulesBox.style.display = 'block'; 
+    rulesBox.style.display = 'block';
 
     // Start button click event
     startBtn.addEventListener('click', startGame);
@@ -32,25 +34,36 @@ document.addEventListener("DOMContentLoaded", function() {
     // Exit button click event to end the game
     exitBtn.addEventListener('click', function() {
         window.close(); // Ends the game
-    })    
-});
-
+    });
 
 /**
- *  Triggers rulesBox, Load grid, start timer and updateFooter
- */
+    *  Triggers rulesBox, Load grid, start timer and updateFooter
+    */
 function startGame() {
-        rulesBox.style.display = 'none'; // Hide the rules modal
-        resetGame();
-        loadGrid();
-        startTimer();
-        updateFooter();
+    console.log('Game started');
+    rulesBox.style.display = 'none'; // Hide the rules modal
+    loadGrid();
 }
 
 function loadGrid() {
-  
+    let allImages = imageNames.concat(imageNames); // Create New Array and Duplicates images to create pairs
+    allImages.sort(() => Math.random() - 0.5); // Shuffle images
+    imageGrid.innerHTML = '';
 
+    // Create image elements
+    allImages.forEach((image, index) => {
+        let imgElement = document.createElement('img');
+        imgElement.setAttribute('src', `assets/images/${defaultImage}`); // Default face
+        imgElement.dataset.image = image; // Store image name in a custom data attribute
+        imgElement.dataset.index = index;
+        imgElement.addEventListener('click', flipImage);
+        imageGrid.appendChild(imgElement);
+    }); 
+    
 }
+
+});   
+
 
 function flipImage() {
 

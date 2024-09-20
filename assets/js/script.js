@@ -128,18 +128,25 @@ function startTimer() {
         }
     }, 1000);
 }
-
+// Move to the next level or reload the current one
+function nextLevel() {
+    if (currentLevel === 1) {
+        currentLevel += 1;
+        gameDuration = 20; // Level 2 has 20 seconds
+        levelTitle.textContent = 'Level 2';
+        startGame(); // Restart game for level 2
+    } else {
+        // Game over or reset for another round
+        alert('Game over! Starting from Level 1.');
+        currentLevel = 1;
+        gameDuration = 30;
+        levelTitle.textContent = 'Level 1';
+        startGame(); // Restart game for level 1
+    }
+}
 
 });   
 
-
-function startTimer() {
-
-}
-
-function nextLevel() {
-
-}
 
 function reloadLevel() {
 

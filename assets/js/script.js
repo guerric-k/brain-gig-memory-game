@@ -44,8 +44,8 @@ function startGame() {
     console.log('Game started');
     rulesBox.style.display = 'none'; // Hide the rules modal
     loadGrid();
-    startTimer();
     resetGame();
+    startTimer();
     updateFooter();
 }
 

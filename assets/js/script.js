@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
-
 /**
     *  Triggers rulesBox, Load grid, start timer and updateFooter
     */
@@ -45,6 +44,7 @@ function startGame() {
     console.log('Game started');
     rulesBox.style.display = 'none'; // Hide the rules modal
     loadGrid();
+    startTimer();
 }
 
 function loadGrid() {
@@ -67,19 +67,70 @@ function loadGrid() {
 }
 
 // Flip image on click
-function flipImage() {
-    let clickedImage = this;
-    clickedImage.src = `assets/images/${clickedImage.dataset.image}`; // Flip to actual image
-    flippedImages.push(clickedImage);
+function flipImage(e) {
+    let clickedImage = e.target;
+    let imageSrc = clickedImage.dataset.image;
 
+    // Only allow flipping if less than 2 images are flipped at a time
+    if (flippedImages.length < 2 && !clickedImage.classList.contains('flipped')) {
+        clickedImage.setAttribute('src', `assets/images/${imageSrc}`);
+        clickedImage.classList.add('flipped');
+        flippedImages.push(clickedImage);
+
+        // Check if two images are flipped
+        if (flippedImages.length === 2) {
+            checkForMatch();
+        }
+    }
 }
-
-});   
-
 
 function checkForMatch() {
+    let firstImage = flippedImages[0];
+    let secondImage = flippedImages[1];
 
+    if (firstImage.dataset.image === secondImage.dataset.image) {
+        // Images match, increment score and matches
+        score += 5;
+        scoreValue.textContent = score;
+        matches += 1;
+        flippedImages = [];
+
+        if (matches === imageNames.length) {
+            clearInterval(timerInterval);
+            alert(`You won! Score: ${score}`);
+            nextLevel();
+        }
+    }else {
+        // No match, flip back after 2 seconds
+        setTimeout(() => {
+            firstImage.setAttribute('src', `assets/images/${defaultImage}`);
+            secondImage.setAttribute('src', `assets/images/${defaultImage}`);
+            firstImage.classList.remove('flipped');
+            secondImage.classList.remove('flipped');
+            flippedImages = [];
+        }, 2000);
+    }
+}    
+
+// Timer function for countdown
+function startTimer() {
+    let timeLeft = gameDuration;
+    timeLeftSpan.textContent = timeLeft;
+
+    timerInterval = setInterval(() => {
+        timeLeft -= 1;
+        timeLeftSpan.textContent = timeLeft;
+
+        if (timeLeft === 0) {
+            clearInterval(timerInterval);
+            alert(`You lost! Score: ${score}`);
+            reloadLevel();
+        }
+    }, 1000);
 }
+
+
+});   
 
 
 function startTimer() {

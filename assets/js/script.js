@@ -145,12 +145,23 @@ function nextLevel() {
     }
 }
 
+// Reload current level
+function reloadLevel() {
+    startGame();
+}
+
+// Reset game values
+function resetGame() {
+    score = 0;
+    matches = 0;
+    scoreValue.textContent = score;
+    clearInterval(timerInterval);
+}
+
 });   
 
 
-function reloadLevel() {
 
-}
 
 function resetGame() {
 

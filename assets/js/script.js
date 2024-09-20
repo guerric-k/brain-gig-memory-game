@@ -50,11 +50,10 @@ function startGame() {
 }
 
 function loadGrid() {
-    // New array where each image repeats four times
-    let allImages = imageNames.flatMap(image => [image, image, image, image]); // Repeat each image 4 times
-    
-    allImages.sort(() => Math.random() - 0.5); // Shuffle images
-    imageGrid.innerHTML = '';
+   // Since imageNames is declared globally, it can now be accessed here
+   let allImages = imageNames.concat(imageNames); // Duplicate images to create pairs
+   allImages.sort(() => Math.random() - 0.5); // Shuffle images
+   imageGrid.innerHTML = ''; // Clear the grid 
 
     // Create image elements
     allImages.forEach((image, index) => {

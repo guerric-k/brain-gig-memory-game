@@ -45,6 +45,8 @@ function startGame() {
     rulesBox.style.display = 'none'; // Hide the rules modal
     loadGrid();
     startTimer();
+    resetGame();
+    updateFooter();
 }
 
 function loadGrid() {
@@ -158,16 +160,20 @@ function resetGame() {
     clearInterval(timerInterval);
 }
 
+// Update footer with date and session time
+function updateFooter() {
+    const now = new Date();
+    datetime.textContent = `Date: ${now.toLocaleString()}`;
+
+    let startTime = new Date().getTime();
+
+    setInterval(() => {
+        let currentTime = new Date().getTime();
+        let duration = Math.floor((currentTime - startTime) / 1000);
+        sessionDuration.textContent = `${duration} seconds`;
+    }, 1000);
+}
+
 });   
 
-
-
-
-function resetGame() {
-
-}
-
-function updateFooter() {
-
-}
 

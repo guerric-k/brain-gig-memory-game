@@ -19,25 +19,28 @@
     <div id="rulesBox" class="modal">
         <div class="modal-content">
             <h1><i class="fa-solid fa-brain"></i>Brain Gig </h1>
-            <p>Match all pairs of images before the timer runs out. You have 30 seconds for Level 1 and 20 seconds for
+            <p>Match all pairs of images before the timer runs out. You have 30 seconds for Level 1 and 20 seconds
+                for
                 Level 2. Good luck!</p>
             <button id="startBtn">Start</button>
-            <button id="exitBtn">Exit</button>
         </div>
     </div>
+
 
     <div id="game">
         <h2 id="levelTitle">Level 1</h2>
         <div id="timer">Time left: <span id="timeLeft"></span></div>
         <div id="score">Score: <span id="scoreValue">0</span></div>
-        <div class="grid" id="imageGrid"></div>
+        <div class="grid-container">
+            <div class="grid" id="imageGrid"></div>
+        </div>
         <div id="footer">
             <div id="datetime"></div>
-            <div id="sessionTime">Session time: <span id="sessionDuration"></span></div>
         </div>
     </div>
 
-    <!-- Dialogue Box Modal -->
+
+    <!-- Win Level 2 Modal -->
     <div id="winModal" class="modal">
         <div class="modal-content">
             <p>Do you want to Continue playing?</p>
@@ -45,6 +48,8 @@
             <button id="exitBtn">Exit</button>
         </div>
     </div>
+
+
     <!--Link to js file-->
     <script src="assets/js/script.js"></script>
     <!--Font Awsome Kit, kept at the bottom to increase search and load speed -->

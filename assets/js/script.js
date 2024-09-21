@@ -16,7 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Get Id of Modal and Buttons
     const rulesBox = document.getElementById('rulesBox');
+    const winModal = document.getElementById('winModal');
     const startBtn = document.getElementById('startBtn');
+    const continueBtn = document.getElementById('continueBtn');
     const exitBtn = document.getElementById('exitBtn');
     const imageGrid = document.getElementById('imageGrid');
     const timeLeftSpan = document.getElementById('timeLeft');
@@ -29,14 +31,20 @@ document.addEventListener("DOMContentLoaded", function() {
     rulesBox.style.display = 'block';
 
     // Start button click event
-    startBtn.addEventListener('click', startGame);
+    startBtn.addEventListener('click', function() {
+        rulesBox.style.display = 'none'; // Hide the rules modal
+        startGame(); // Start Level 1
+    });
 
     // Exit button click event to end the game
     exitBtn.addEventListener('click', function() {
-        window.close(); // Ends the game
+        closeGame(); // Handle exit game
     });
 
-
+function showWinModal() {
+        const winModal = document.getElementById('winModal');
+        winModal.style.display = 'block'; // Show the win modal when Level 2 is won
+    }
 /**
     *  Triggers rulesBox, Load grid, start timer and updateFooter
     */
@@ -159,6 +167,12 @@ function resetGame() {
     clearInterval(timerInterval);
 }
 
+function closeGame() {
+    document.body.innerHTML = "<h1>Game Over. Thanks for playing!</h1>";
+}
+
+});   
+
 // Update footer with date and session time
 function updateFooter() {
     const now = new Date();
@@ -166,13 +180,5 @@ function updateFooter() {
 
     let startTime = new Date().getTime();
 
-    setInterval(() => {
-        let currentTime = new Date().getTime();
-        let duration = Math.floor((currentTime - startTime) / 1000);
-        sessionDuration.textContent = `${duration} seconds`;
-    }, 1000);
 }
-
-});   
-
 

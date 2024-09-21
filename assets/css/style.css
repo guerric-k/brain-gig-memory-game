@@ -86,6 +86,32 @@ button {
     font-size: 1.2rem;
 }
 
+/* Media query for small screens (mobile phones) */
+@media screen and (max-width: 768px) {
+    /* Resize images on small screens */
+    .grid img {
+        width: 80px;
+        height: 90px;
+    }
+
+    /* Make modal content easier to read and centered */
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+        font-size: 1rem; 
+    }
+    /* Adjust button sizes */
+    button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    /* Adjust grid columns on mobile */
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Show 2 columns on mobile for better layout */
+    }
+}
+
 /* Media query for larger screens (laptops/desktops) */
 @media screen and (min-width: 1024px) {
     /* Increase image sizes */
@@ -101,7 +127,6 @@ button {
         width: 40%;
     }
 
-    /* Adjust button size */
     button {
         font-size: 1.2rem;
         padding: 15px 30px;

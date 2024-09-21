@@ -19,9 +19,8 @@
     <div id="rulesBox" class="modal">
         <div class="modal-content">
             <h1><i class="fa-solid fa-brain"></i>Brain Gig </h1>
-            <p>Match all pairs of images before the timer runs out. You have 30 seconds for Level 1 and 20 seconds
-                for
-                Level 2. Good luck!</p>
+            <p>Match all pairs of images before the timer runs out. You have 60 seconds for Level 1 and 40 seconds
+                for Level 2. Good luck!</p>
             <button id="startBtn">Start</button>
         </div>
     </div>
@@ -41,15 +40,25 @@
     </div>
 
 
-    <!-- Win Level 2 Modal -->
+    <!-- Win Modal -->
     <div id="winModal" class="modal">
         <div class="modal-content">
-            <p>Do you want to Continue playing?</p>
-            <button id="continueBtn">Continue</button>
-            <button id="exitBtn">Exit</button>
+            <h2>Congratulations! You won!</h2>
+            <p>Your score is: <span id="winScore"></span></p>
+            <button id="continueWinBtn">Continue</button>
+            <button id="exitWinBtn">Exit</button>
         </div>
     </div>
 
+    <!-- Lose Modal -->
+    <div id="loseModal" class="modal">
+        <div class="modal-content">
+            <h2>Sorry! You lost!</h2>
+            <p>Your score is: <span id="loseScore"></span></p>
+            <button id="continueLoseBtn">Continue</button>
+            <button id="exitLoseBtn">Exit</button>
+        </div>
+    </div>
 
     <!--Link to js file-->
     <script src="assets/js/script.js"></script>

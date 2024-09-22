@@ -77,7 +77,6 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: none;
     padding: 20px;
     border-radius: 10px;
     border: none;

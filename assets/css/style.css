@@ -146,9 +146,9 @@ button:hover {
 
     /* Make modal content easier to read and centered */
     .modal-content {
-        width: 90%;
-        padding: 20px;
-        font-size: 1rem; 
+        width: 80%;
+        padding: 15px;
+        font-size: 0.9rem; 
     }
     /* Adjust button sizes */
     button {

@@ -18,8 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const rulesBox = document.getElementById('rulesBox');
     const winModal = document.getElementById('winModal');
     const startBtn = document.getElementById('startBtn');
-    const continueBtn = document.getElementById('continueBtn');
-    const exitBtn = document.getElementById('exitBtn');
     const imageGrid = document.getElementById('imageGrid');
     const timeLeftSpan = document.getElementById('timeLeft');
     const scoreValue = document.getElementById('scoreValue');
@@ -221,8 +219,5 @@ function closeGame() {
 function updateFooter() {
     const now = new Date();
     datetime.textContent = `Date: ${now.toLocaleString()}`;
-
-    let startTime = new Date().getTime();
-
 }
 

@@ -2,7 +2,7 @@
 body {
    font-family: 'Roboto', sans-serif; 
    background-color: #2e3b4e;
-   color: white;
+   color: #f0f0f0;;
    margin: 0;
    padding: 0;
 }
@@ -22,6 +22,7 @@ body {
 
 /* Targeting the .modal class */
 .modal {
+    margin-top: 60px;
     display: none; /* Hidden by default */
     position: fixed;
     z-index: 1000; /* Makes it stay above other elements */
@@ -29,7 +30,7 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); 
+    background-color: rgba(0, 0, 0, 0.8); 
     justify-content: center;
     align-items: center; 
 }
@@ -38,29 +39,37 @@ body {
 .modal-content {
     background-color: #4e5d73;
     margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
+    padding: 30px;
+    border: 2px solid #f87760;
     width: 40%; 
-    border-radius: 10px; 
+    border-radius: 15px; 
     text-align: center; 
     color: white; 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Headings styling */
+.modal-content h2 {
+    font-size: 1.5rem;
+    margin: 0.5em 0;
 }
 
 /* Buttons styling */
 button {
-    padding: 10px 20px;
+    padding: 12px 24px;
     margin: 10px;
     background-color: #f87760; 
     border: none;
     color: white; 
     cursor: pointer;
     font-size: 1rem;
-    border-radius: 5px; 
-    transition: background-color 0.3s; 
+    border-radius: 8px; 
+    transition: background-color 0.3s, transform 0.2s; 
 }
 
 button:hover {
     background-color: #e56750; /* Darker shade on hover */
+    transform: scale(1.05);
 }
 
 /* Centering the grid and placing it in a box */
@@ -77,7 +86,7 @@ button:hover {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 columns */
     grid-template-rows: repeat(4, 1fr); /* 4 rows  */
-    gap: 3px;
+    gap: 10px;
         
 }
 
@@ -85,9 +94,13 @@ button:hover {
     width: 100px;
     height: 110px;
     cursor: pointer;
-    border-radius: 5px;
-    display: block;
-    
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.grid img:hover {
+    transform: scale(1.1); 
 }
 
 /* Targets close game  text */
@@ -107,30 +120,34 @@ button:hover {
     transform: translateX(-50%);
 }
 
+/* Footer styling */
 #footer {
     position: fixed;
     bottom: 0;
     left: 0;
     padding: 10px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    text-align: center;
 }
+
 #timer, #score {
     margin-top: 10px;
     font-size: 1.2rem;
+    text-align: center; 
 }
 
 /* Media query for small screens (mobile phones) */
 @media screen and (max-width: 768px) {
     /* Resize images on small screens */
     .grid img {
-        width: 80px;
-        height: 90px;
+        width: 100px;
+        height: 120px;
     }
 
     /* Make modal content easier to read and centered */
     .modal-content {
         width: 90%;
-        padding: 15px;
+        padding: 20px;
         font-size: 1rem; 
     }
     /* Adjust button sizes */
@@ -141,7 +158,7 @@ button:hover {
 
     /* Adjust grid columns on mobile */
     .grid {
-        grid-template-columns: repeat(2, 1fr); /* Show 2 columns on mobile for better layout */
+        grid-template-columns: repeat(2, 1fr); /* Show 2columns on mobile for better layout */
     }
 }
 
@@ -149,8 +166,8 @@ button:hover {
 @media screen and (min-width: 1024px) {
     /* Increase image sizes */
     .grid img {
-        width: 190px;
-        height: 200px;
+        width: 200px;
+        height: 220px;
     }
 
     /* Increase text size in rules box */
